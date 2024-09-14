@@ -1,0 +1,38 @@
+{% extends 'file_upload/base.html' %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-light-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+        <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+            <div class="max-w-md mx-auto">
+                <div>
+                    <h1 class="text-2xl font-semibold">Upload Encrypted File</h1>
+                </div>
+                <div class="divide-y divide-gray-200">
+                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                        <form action="/upload/" method="post" enctype="multipart/form-data" class="space-y-4">
+                            {% csrf_token %}
+                            <div class="flex items-center justify-center w-full">
+                                <label for="file-upload" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400">Any file type (MAX. 10MB)</p>
+                                    </div>
+                                    <input id="file-upload" name="file" type="file" class="hidden" />
+                                </label>
+                            </div> 
+                            <div class="flex items-center justify-between">
+                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Upload
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
